@@ -16,6 +16,7 @@ namespace MassTransit.Testing
     using System.Linq;
     using Automatonymous;
     using Automatonymous.Testing;
+    using MassTransit.Saga;
     using TestInstanceConfigurators;
 
 
@@ -23,7 +24,7 @@ namespace MassTransit.Testing
     {
         public static void UseStateMachineBuilder<TScenario, TSaga, TStateMachine>(
             this ISagaTestConfigurator<TScenario, TSaga> configurator, TStateMachine stateMachine)
-            where TSaga : class, SagaStateMachineInstance
+            where TSaga : class, ISaga, SagaStateMachineInstance
             where TScenario : ITestScenario
             where TStateMachine : SagaStateMachine<TSaga>
         {
