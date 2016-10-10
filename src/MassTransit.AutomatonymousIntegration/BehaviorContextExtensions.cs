@@ -27,13 +27,13 @@ namespace Automatonymous
             return GetConsumeContext(context).Publish(message);
         }
 
-        public static Task Publish<TInstance, TData, T>(this BehaviorContext<TInstance, TData> context, T message, IPipe<SendContext<T>> sendPipe)
+        public static Task Publish<TInstance, TData, T>(this BehaviorContext<TInstance, TData> context, T message, IPipe<PublishContext<T>> sendPipe)
             where T : class
         {
             return GetConsumeContext(context).Publish(message, sendPipe);
         }
 
-        public static Task Publish<TInstance, TData, T>(this BehaviorContext<TInstance, TData> context, T message, IPipe<SendContext> sendPipe)
+        public static Task Publish<TInstance, TData, T>(this BehaviorContext<TInstance, TData> context, T message, IPipe<PublishContext> sendPipe)
             where T : class
         {
             return GetConsumeContext(context).Publish(message, sendPipe);
@@ -49,7 +49,7 @@ namespace Automatonymous
             return GetConsumeContext(context).Publish(message, messageType);
         }
 
-        public static Task Publish<TInstance, TData>(this BehaviorContext<TInstance, TData> context, object message, IPipe<SendContext> sendPipe)
+        public static Task Publish<TInstance, TData>(this BehaviorContext<TInstance, TData> context, object message, IPipe<PublishContext> sendPipe)
         {
             return GetConsumeContext(context).Publish(message, sendPipe);
         }
@@ -66,13 +66,13 @@ namespace Automatonymous
             return GetConsumeContext(context).Publish<T>(values);
         }
 
-        public static Task Publish<TInstance, TData, T>(this BehaviorContext<TInstance, TData> context, object values, IPipe<SendContext<T>> sendPipe)
+        public static Task Publish<TInstance, TData, T>(this BehaviorContext<TInstance, TData> context, object values, IPipe<PublishContext<T>> sendPipe)
             where T : class
         {
             return GetConsumeContext(context).Publish(values, sendPipe);
         }
 
-        public static Task Publish<TInstance, TData, T>(this BehaviorContext<TInstance, TData> context, object values, IPipe<SendContext> sendPipe)
+        public static Task Publish<TInstance, TData, T>(this BehaviorContext<TInstance, TData> context, object values, IPipe<PublishContext> sendPipe)
             where T : class
         {
             return GetConsumeContext(context).Publish<T>(values, sendPipe);
